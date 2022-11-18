@@ -1,6 +1,8 @@
 #include "main.h"
 #include "increment.h"
 #include "process.h"
+#include "event.h"
+#include "dispatcher.h"
 
 FILE *logptr;
 
@@ -26,27 +28,27 @@ int main(int argc, char **argv)
     }
     // implement your code here
     {
+
+        // process_t dispatcher;
+        // dispatcher.in="dev/pts/";
+        // dispatcher.out="";
+        // dispatcher.func=dispacher_fuc;
+        // creat_process(&dispatcher);
+        //child ->dispatcher
+        //parent ->creat event
         process_t proc[4];
         for (int i= 0; i < 4; i++)
         {
-            
-            proc[i].id=i+1;
-            sprintf(proc[i].name,"proc_child %d", i+1);
-            // printf("name %s\n",proc[i].name);
-            sprintf(proc[i].in,"/dev/pts/%d",2*i+1);
-            // printf("in %s\n",proc[i].in);
-            sprintf(proc[i].out,"/dev/pts/%d",2*i+2);
-            // printf("out %s\n",proc[i].out);
+            proc[i].info.id=i+1;
+            sprintf(proc[i].info.name,"proc_child %d", i+1);
+            sprintf(proc[i].info.in,"/dev/pts/%d",2*i+1);
+            sprintf(proc[i].info.out,"/dev/pts/%d",2*i+2);
             proc[i].func=incremente;
             creat_process(&proc[i]);
         }
-        int count = 0;
-        while (1)
-        {
-            printf("counter: %d\n", count++);
-            sleep(1);
-        }
+        
     }
+    // create_event();
     // closing app
     DEBUG(("App exit"));
     // fclose(logptr);

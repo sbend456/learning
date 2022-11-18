@@ -15,8 +15,8 @@ void creat_process(process_t *p)
     if (process == 0)
     {
         printf("\nchild: %d\nname: %s\nIN: %s\nOUT: %s\n",\
-        p->id,p->name,p->in,p->out);
-        p->func(p->id);
+        p->info.id,p->info.name,p->info.in,p->info.out);
+        p->func(&(p->info));
         exit (0);
     }
 }

@@ -1,0 +1,1 @@
+int dispacher_fuc(int i);
