@@ -29,13 +29,16 @@ int main(int argc, char **argv)
         process_t proc[4];
         // for (int j = 0; j < 4; j++)
         // {
-            int j=0;
-            proc[i].id=j+1;
-            sprintf(proc[i].name,"process child %d", j+1);
-            sprintf(proc[i].in,"/dev/pts/%d",2*j+1);
-            sprintf(proc[i].out,"/dev/pts/%d",2*j+2);
-            proc[i].func=incremente;
-            creat_process(&proc[j]);
+            int i=0;
+            proc[i].id=i+1;
+            sprintf(proc[i].name,"proc_child %d", i+1);
+            // printf("name %s\n",proc[i].name);
+            sprintf(proc[i].in,"/dev/pts/%d",2*i+1);
+            // printf("in %s\n",proc[i].in);
+            sprintf(proc[i].out,"/dev/pts/%d",2*i+2);
+            // printf("out %s\n",proc[i].out);
+            proc[i].func=(void*)incremente;
+            creat_process(&proc[i]);
         // }
         int count = 0;
         while (1)
