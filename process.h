@@ -5,7 +5,7 @@ typedef struct process_t
     char in[100];
     char out[100];
     char name[50];
-    void (*func)();
+    int (*func)(int);
 } process_t;
 
 void creat_process(process_t *p);

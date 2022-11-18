@@ -27,9 +27,9 @@ int main(int argc, char **argv)
     // implement your code here
     {
         process_t proc[4];
-        // for (int j = 0; j < 4; j++)
-        // {
-            int i=0;
+        for (int i= 0; i < 4; i++)
+        {
+            
             proc[i].id=i+1;
             sprintf(proc[i].name,"proc_child %d", i+1);
             // printf("name %s\n",proc[i].name);
@@ -37,9 +37,9 @@ int main(int argc, char **argv)
             // printf("in %s\n",proc[i].in);
             sprintf(proc[i].out,"/dev/pts/%d",2*i+2);
             // printf("out %s\n",proc[i].out);
-            proc[i].func=(void*)incremente;
+            proc[i].func=incremente;
             creat_process(&proc[i]);
-        // }
+        }
         int count = 0;
         while (1)
         {
