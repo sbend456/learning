@@ -18,6 +18,9 @@ typedef struct OBJECT{
 // extern OBJECT * last;
 
 static char *rand_string(char *str, size_t size);
-OBJECT * create_event(void);
+OBJECT * new_event(void);
+void creat_event();
+int receive(char *device,OBJECT **ptr);
+int send(char * device, OBJECT *ptr);
 
 #endif

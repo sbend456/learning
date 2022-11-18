@@ -3,6 +3,16 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+#include <string.h>
+#include <errno.h>
+#include <pthread.h>
+
+
 extern FILE *logptr;
 extern void _debug (const char *fmt, ...);
 

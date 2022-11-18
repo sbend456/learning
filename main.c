@@ -48,7 +48,7 @@ int main(int argc, char **argv)
         }
         
     }
-    // create_event();
+    creat_event();
     // closing app
     DEBUG(("App exit"));
     // fclose(logptr);
