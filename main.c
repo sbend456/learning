@@ -29,11 +29,13 @@ int main(int argc, char **argv)
     // implement your code here
     {
 
-        // process_t dispatcher;
-        // dispatcher.in="dev/pts/";
-        // dispatcher.out="";
-        // dispatcher.func=dispacher_fuc;
-        // creat_process(&dispatcher);
+        process_t dispatcher;
+        dispatcher.info.id=0;
+        sprintf(dispatcher.info.name,"proc_dispatcher");
+        sprintf(dispatcher.info.in,"/dev/pts/%d",16);
+        sprintf(dispatcher.info.out,"/dev/pts/%d",17);
+        dispatcher.func=dispacher_fuc;
+        creat_process(&dispatcher);
         //child ->dispatcher
         //parent ->creat event
         process_t proc[4];
@@ -41,14 +43,14 @@ int main(int argc, char **argv)
         {
             proc[i].info.id=i+1;
             sprintf(proc[i].info.name,"proc_child %d", i+1);
-            sprintf(proc[i].info.in,"/dev/pts/%d",2*i+1);
-            sprintf(proc[i].info.out,"/dev/pts/%d",2*i+2);
+            sprintf(proc[i].info.in,"/dev/pts/%d",3*i+4);
+            sprintf(proc[i].info.out,"/dev/pts/%d",3*i+5);
             proc[i].func=incremente;
             creat_process(&proc[i]);
         }
         
+        creat_event(&dispatcher.info);
     }
-    creat_event();
     // closing app
     DEBUG(("App exit"));
     // fclose(logptr);

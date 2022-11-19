@@ -1,1 +1,1 @@
-int dispacher_fuc(int i);
+int dispacher_fuc(process_info *p);

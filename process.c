@@ -1,6 +1,7 @@
 #include "main.h"
 #include "increment.h"
 #include "process.h"
+#include "event.h"
 
 void creat_process(process_t *p)
 {
@@ -20,3 +21,46 @@ void creat_process(process_t *p)
         exit (0);
     }
 }
+
+
+int send(char * device, OBJECT *ptr){
+    // OBJECT *ptr;&ptr;
+
+    int fd1;
+    int file1;
+    char buf1;
+    fd1=open(device, O_WRONLY);
+    if(fd1<0){
+        printf("ERROR send %d %s\n",errno,device);
+        return 1;
+    }
+
+    DEBUG(("send event ptr: %0X",ptr));
+    file1=write(fd1,&ptr,sizeof(ptr));
+    if(file1<0){
+        printf("error on writing: %d",errno);
+        return 1;
+    }
+    close(fd1);
+    
+    return 0;
+}
+
+
+//input = device         output=pointer de mon object
+int receive(char *device,OBJECT **ptr){
+
+    int fd2;
+    int file2;
+    // OBJECT * ptr;
+    fd2=open(device,O_RDONLY);
+    if(fd2<0){
+        printf("ERROR on opening %s: %d\n",device, errno);
+        return -1;
+    }
+    file2=read(fd2,ptr,sizeof(ptr));
+    close(fd2);
+    DEBUG(("ptr receive: %0x", *ptr));
+    return 0;
+}
+

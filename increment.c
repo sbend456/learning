@@ -14,7 +14,7 @@ int incremente(process_info *p){
     while (count!=10)
     {
         fprintf(file,"count : %d\n", count);
-        DEBUG (("count : %d\n",count));
+        // DEBUG (("count : %d\n",count));
         fclose(file);
         fopen(path,"a");
         count++;
