@@ -14,7 +14,7 @@ int incremente(process_info *p){
     OBJECT *obj_ptr=receive(p->out);
     sprintf(path,"./f%d.txt",p->id);
     FILE *file=fopen(path,"wa");
-    printf("ADRESS: %s ,departement: %d ,num: %d\n",\
+    fprintf(file,"\nADRESS: %s \ndepartement: %d \nnum: %d\n",\
     obj_ptr->event.addresse,obj_ptr->event.department, obj_ptr->event.num);
 
     //---------
