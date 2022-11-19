@@ -7,6 +7,7 @@ typedef struct EVENT_TYPE {
     char  text[100];
     char  addresse[100];
     int severity;
+    int num;
 } EVENT_TYPE;
 
 typedef struct OBJECT{

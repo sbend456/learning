@@ -6,6 +6,7 @@
 
 OBJECT * start_list=0;
 OBJECT * last=0;
+int count=0;
 
 //=======================================
 
@@ -26,6 +27,7 @@ static char *rand_string(char *str, size_t size)
 OBJECT * new_event(void){
     OBJECT* elemt;
     elemt = malloc(sizeof (OBJECT));
+    elemt->event.num=++count;
     elemt->event.department = (rand()%4);
      DEBUG(("new event depart : %d",elemt->event.department));
     rand_string(elemt->event.text, 50);
