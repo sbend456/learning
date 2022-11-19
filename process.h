@@ -10,6 +10,7 @@ typedef struct process_info
     char in[100];
     char out[100];
     char name[50];
+    // pid_t pid;
 } process_info;
 
 typedef struct process_t
@@ -19,9 +20,9 @@ typedef struct process_t
 }process_t;
 
 
-void creat_process(process_t *p);
-int receive(char *device,OBJECT **ptr);
-int send(char * device, OBJECT *ptr);
+pid_t creat_process(process_t *p);
+int receive_ptr(char *device,OBJECT **ptr);
+int send_ptr(char * device, OBJECT *ptr);
 
 
 

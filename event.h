@@ -19,6 +19,6 @@ typedef struct OBJECT{
 
 static char *rand_string(char *str, size_t size);
 OBJECT * new_event(void);
-void creat_event();
+void creat_event_func(process_info *p);
 
 #endif

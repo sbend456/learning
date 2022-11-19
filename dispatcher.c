@@ -3,15 +3,15 @@
 #include "process.h"
 
 int dispacher_fuc(process_info *p){
-    DEBUG(("dispatch started"))
+    DEBUG(("dispatch started"));
     int count=1;
     while (1)
     {
         //recevoir evenemt
         OBJECT *obj_ptr;
-        receive(p->out,&obj_ptr);
+        receive_ptr(p->out,&obj_ptr);
         // DEBUG(("departement:") );
-        DEBUG(("departement: %d",obj_ptr->event.department) );
+        // DEBUG(("departement: %d",obj_ptr->event.department) );
        
         //verifier departemt de event
         //depart=pointeur sur le depart de lobj

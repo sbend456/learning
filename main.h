@@ -11,6 +11,7 @@
 #include <string.h>
 #include <errno.h>
 #include <pthread.h>
+#include <signal.h>
 
 
 extern FILE *logptr;

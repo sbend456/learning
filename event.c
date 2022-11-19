@@ -38,14 +38,15 @@ OBJECT * new_event(void){
     return elemt;
 }
 
-void creat_event(process_info *p){
+void creat_event_func(process_info *p){
     int i=0;
     while(1){
         OBJECT * event;    
         printf("Generate Event %d\n", i++);
         // printf("in event %s\n", p->in);
         event =new_event();
-        send(p->in,event);
+        DEBUG(("creat event depart: %d",event->event.department));
+        send_ptr(p->in,event);
         sleep(5);
     }
 
