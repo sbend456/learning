@@ -3,8 +3,6 @@
 #ifndef PROCESS_H
 #define PROCESS_H 
 
-#include "event.h"
-
 typedef struct process_info
 {   int id;
     char in[100];
@@ -21,9 +19,6 @@ typedef struct process_t
 
 
 pid_t creat_process(process_t *p);
-int receive_ptr(char *device,OBJECT **ptr);
-int send_ptr(char * device, OBJECT *ptr);
-
 
 
 #endif // PROCESS_H

@@ -1,3 +1,6 @@
+// #ifndef MAIN_C
+// #define MAIN_C
+
 #include "main.h"
 #include "increment.h"
 #include "process.h"
@@ -5,6 +8,8 @@
 #include "dispatcher.h"
 
 FILE *logptr;
+process_t proc[4];
+
 
 void _debug(const char *fmt, ...)
 {
@@ -49,7 +54,7 @@ int main(int argc, char **argv)
         pid[0]=creat_process(&dispatcher);
         //child ->dispatcher
         //parent ->creat event
-        process_t proc[4];
+        
         for (int i= 0; i < 4; i++)
         {            
             proc[i].info.id=i+1;
@@ -74,3 +79,4 @@ int main(int argc, char **argv)
     return 0;
 }
 
+// #endif

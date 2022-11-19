@@ -1,6 +1,9 @@
 #include "main.h"
 #include "event.h"
 #include "process.h"
+#include "mail.h"
+
+extern process_t proc[4];
 
 int dispacher_fuc(process_info *p){
     DEBUG(("dispatch started"));
@@ -8,30 +11,13 @@ int dispacher_fuc(process_info *p){
     while (1)
     {
         //recevoir evenemt
-        OBJECT *obj_ptr;
-        receive_ptr(p->out,&obj_ptr);
+        OBJECT *obj_ptr=receive(p->out);
+        DEBUG(("Dispatcher RCV DEPART : %d",obj_ptr->event.department));
         // DEBUG(("departement:") );
         // DEBUG(("departement: %d",obj_ptr->event.department) );
-       
-        //verifier departemt de event
-        //depart=pointeur sur le depart de lobj
-        // switch (obj_ptr->event.department)
-        // {
-        // case 0:
-        //     break;
-        // case 1:
-        // /* code */
-        // break;
-        // case 2:
-        //     /* code */
-        //     break;
-        // case 3:
-        // /* code */
-        // break;
     
-        // default:
-        //     break;
-        // }
+        //verifier departemt de event
+        send(proc[0].info.out,obj_ptr);
         //envoyer au bn process
         sleep(1);
         DEBUG(("dispacher %d", count++));

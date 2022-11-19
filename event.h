@@ -1,7 +1,7 @@
 
 #ifndef EVENT_H
 #define EVENT_H
-
+#include "process.h"
 typedef struct EVENT_TYPE {
     unsigned char department;
     char  text[100];
@@ -19,6 +19,6 @@ typedef struct OBJECT{
 
 static char *rand_string(char *str, size_t size);
 OBJECT * new_event(void);
-void creat_event_func(process_info *p);
+int creat_event_func(process_info *p);
 
 #endif

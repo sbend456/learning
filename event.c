@@ -1,6 +1,7 @@
 #include "main.h"
 #include "event.h"
 #include "process.h"
+#include "mail.h"
 
 
 OBJECT * start_list=0;
@@ -32,13 +33,14 @@ OBJECT * new_event(void){
     if(start_list == NULL){
         start_list = elemt;
     }else{
+        last->next=(EVENT_TYPE*)elemt;
         // last->next = elemt;
     }
     last = elemt;
     return elemt;
 }
 
-void creat_event_func(process_info *p){
+int creat_event_func(process_info *p){
     int i=0;
     while(1){
         OBJECT * event;    
@@ -46,10 +48,10 @@ void creat_event_func(process_info *p){
         // printf("in event %s\n", p->in);
         event =new_event();
         DEBUG(("creat event depart: %d",event->event.department));
-        send_ptr(p->in,event);
+        send(p->in,event);
         sleep(5);
     }
-
+    return 0;
 }
 
 

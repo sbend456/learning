@@ -57,7 +57,7 @@ OBJECT* receive(char *device){
     fd2=open(device,O_RDONLY);
     if(fd2<0){
         printf("ERROR on opening %s: %d\n",device, errno);
-        return -1;
+        return NULL;
     }
     file2=read(fd2,p,sizeof(OBJECT));
     close(fd2);
