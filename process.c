@@ -1,5 +1,5 @@
 #include "main.h"
-#include "increment.h"
+#include "department.h"
 #include "process.h"
 #include "event.h"
 
@@ -15,8 +15,8 @@ pid_t creat_process(process_t *p)
     }
     if (process == 0)
     {
-        printf("\nchild: %d\nname: %s\nIN: %s\nOUT: %s\n",\
-        p->info.id,p->info.name,p->info.in,p->info.out);
+        DEBUG(("\nchild: %d\nname: %s\nIN: %s\nOUT: %s\n",\
+        p->info.id,p->info.name,p->info.in,p->info.out));
         p->func(&(p->info));
         exit (0);
     }

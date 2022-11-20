@@ -5,10 +5,9 @@
 
 typedef struct process_info
 {   int id;
-    char in[100];
-    char out[100];
+    char in[20];   //not really needed but just in case
+    char out[20];
     char name[50];
-    // pid_t pid;
 } process_info;
 
 typedef struct process_t

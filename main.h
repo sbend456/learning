@@ -27,5 +27,12 @@ extern void _debug (const char *fmt, ...);
 // #define DEBUG(X) fprintf(logptr,"p:%d %s:%d ",getpid(),__FILE__, __LINE__); _debug X; fprintf(logptr, "\n");
 #define DEBUG(X)     logptr = fopen("debug.txt","a");fprintf(logptr,"pp:%d p:%d %s:%d ",getppid(),getpid(),__FILE__, __LINE__); _debug X;fprintf(logptr, "\n");fclose(logptr);
 
-
+enum proc_index {
+    DEPT1,
+    DEPT2,
+    DEPT3,
+    DEPT4,
+    DISPATCH,
+    EVENT
+};
 #endif
